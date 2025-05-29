@@ -13,7 +13,9 @@ from openai import OpenAI
 load_dotenv(override=True)
 #api_key = os.getenv('OPENAI_API_KEY')
 #api_key = st.secrets.get('OPENAI_API_KEY')
-openai.api_key = os.getenv("OPENAI_API_KEY")
+#openai.api_key = os.getenv("OPENAI_API_KEY")
+api_key = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY"))
+openai.api_key = api_key
 
 # Initialize OpenAI client
 openai = OpenAI(api_key=api_key)
