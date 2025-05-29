@@ -1,16 +1,19 @@
 # summary_app.py
 
 import os
+import openai
 import requests
 import streamlit as st
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 from openai import OpenAI
 
+
 # Load environment variables from .env
 load_dotenv(override=True)
 #api_key = os.getenv('OPENAI_API_KEY')
-api_key = st.secrets.get('OPENAI_API_KEY')
+#api_key = st.secrets.get('OPENAI_API_KEY')
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Initialize OpenAI client
 openai = OpenAI(api_key=api_key)
